@@ -1,7 +1,7 @@
 // Variables
 let number1Input = document.getElementById("num1")
 let number2Input = document.getElementById("num2")
-let resultOutput = document.getElementById("result") //.innerhtml = result ??
+let resultOutput = document.getElementById("result")
 let operand = ""
 const operandObject = {}
 const integersObject = {}
