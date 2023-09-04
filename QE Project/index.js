@@ -41,41 +41,17 @@ function sendToCalculate() {
         }
     }
 
-    // axios.post('http://localhost:8081/numberservice', JSON.stringify(integersObject),  {
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-
-    //   axios.post('http://localhost:8081/operatorservice', JSON.stringify(operandObject),  {
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-
     axios
     .all([
       axios.post('http://localhost:8081/numberservice', integersObject, options),
       axios.post('http://localhost:8081/operatorservice', operandObject, options)
     ])
-    .then(axios.spread((numberservice, operatorservice) => console.log(operatorservice)))
+    .then(axios.spread((numberservice, operatorservice) => showOutput(operatorservice.data)))
     .catch(err => console.error(err));
 }
 
-function showOutput(operatorservice) {
-
+function showOutput(res) {
+    document.getElementById("result").placeholder = res
 }
 
 
@@ -85,17 +61,3 @@ let subButton = document.getElementById("sub").addEventListener("click", subOper
 let mulButton = document.getElementById("mul").addEventListener("click", mulOperand)
 let divButton = document.getElementById("div").addEventListener("click", divOperand)
 let calcButton = document.getElementById("calc").addEventListener("click", sendToCalculate)
-
-// const response = await fetch("https://localhost:8081/", {
-// method: 'POST',
-// headers: {
-//   'Accept': 'application/json',
-//   'Content-Type': 'application/json'
-// },
-// body: `{
-//    "Id": 78912,
-//    "Customer": "Jason Sweet",
-//    "Quantity": 1,
-//    "Price": 18.00
-//   }`,
-// });
