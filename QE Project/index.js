@@ -1,23 +1,42 @@
-var number1 = document.getElementById("num1")
-var number2 = document.getElementById("num2")
-var result = document.getElementById("result")
-var operator
+// Variables
+let number1Input = document.getElementById("num1").value
+let number2Input = document.getElementById("num2").value
+let resultOutput = document.getElementById("result") //.innerhtml = result ??
+let operand
+const operandObject = {}
+const integersObject = {}
 
-document.getElementById("add").addEventListener("click", function() {
-    operator = "add"
-})
+// Functions
+function addOperand() {
+    operand = "add"
+}
 
-document.getElementById("sub").addEventListener("click". function () {
-    operator = "subtract"
-})
+function subOperand() {
+    operand = "subtract"
+}
 
-document.getElementById("mul").addEventListener("click". function () {
-    operator = "multiply"
-})
+function mulOperand() {
+    operand = "multiply"
+}
 
-document.getElementById("div").addEventListener("click". function () {
-    operator = "divide"
-})
+function divOperand() {
+    operand = "divide"
+}
+
+function sendToCalculate() {
+    integers.number1 = number1Input
+    integers.number2 = number2Input
+    operandObject.operand = operand
+
+}
+
+
+//Event Listeners
+let addButton = documnent.getElementById("add").addEventListener("click", addOperand)
+let subButton = documnent.getElementById("sub").addEventListener("click", subOperand)
+let mulButton = documnent.getElementById("mul").addEventListener("click", mulOperand)
+let divButton = documnent.getElementById("div").addEventListener("click", divOperand)
+let calcButton = documnent.getElementById("calc").addEventListener("click", sendToCalculate)
 
 // const response = await fetch("https://localhost:8081/", {
 // method: 'POST',
