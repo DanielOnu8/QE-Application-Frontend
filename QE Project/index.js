@@ -47,7 +47,7 @@ function sendToCalculate() {
       axios.post('http://localhost:8081/operatorservice', operandObject, options)
     ])
     .then(axios.spread((numberservice, operatorservice) => showOutput(operatorservice.data)))
-    .catch(err => console.error(err));
+    .catch(err => alert(err));
 }
 
 function showOutput(res) {
