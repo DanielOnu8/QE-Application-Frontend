@@ -8,30 +8,30 @@ const integersObject = {}
 
 // Functions
 function addOperand() {
-    operand = "add"
+    operand = "ADD"
     console.log(operand)
 }
 
 function subOperand() {
-    operand = "subtract"
+    operand = "SUBTRACT"
     console.log(operand)
 }
 
 function mulOperand() {
-    operand = "multiply"
+    operand = "MULTIPLY"
     console.log(operand)
 }
 
 function divOperand() {
-    operand = "divide"
+    operand = "DIVIDE"
     console.log(operand)
 }
 
 function sendToCalculate() {
     integersObject.number1 = Number(number1Input.value)
     integersObject.number2 = Number(number2Input.value)
-    operandObject.operator = operand
-    console.log(operandObject)
+    
+    console.log(operand)
     console.log(integersObject)
     console.log(typeof integersObject.number1)
 
@@ -44,7 +44,7 @@ function sendToCalculate() {
     axios
     .all([
       axios.post('http://localhost:8081/numberservice', integersObject, options),
-      axios.post('http://localhost:8081/operatorservice', operandObject, options)
+      axios.post('http://localhost:8081/operatorservice', operand, options)
     ])
     .then(axios.spread((numberservice, operatorservice) => showOutput(operatorservice.data)))
     .catch(err => alert(err));
